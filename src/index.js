@@ -22,9 +22,21 @@ app.set('views', path.join(__dirname, 'views'));
 // Setting the public directory
 app.use("/public", express.static(path.join(__dirname, "../public")))
 
-// Define a route
+// serving web pages
 app.get('/', (req, res) => {
-  res.render('home');
+  res.render('home', {
+    title: "Home"
+  });
+});
+app.get('/create', (req, res) => {
+  res.render('create', {
+    title: "Create new blog"
+  });
+});
+app.get('/contact', (req, res) => {
+  res.render('contact', {
+    title: "Contact Me"
+  });
 });
 
 // Start the server
